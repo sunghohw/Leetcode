@@ -18,7 +18,6 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        lst = []
         dict = {}
         for i in xrange(len(nums)):
             n = nums[i]
