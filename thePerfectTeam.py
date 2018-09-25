@@ -8,11 +8,12 @@ def differentTeams(skills):
             While(True)
 
     for k,v in teams.items():
+        print (k,v,count)
         if v < count:
             count = v
     print teams
-    return v
+    return count
 
-print(differentTeams("pcmbz"))
-print(differentTeams("pcmpcmbbbzz"))
-print(differentTeams("pcmpppcmpcmbbbpcmcmcmcmcpppmcmcmzzpcmpcmbbbzzpcmpcmbbbzz"))
+# print(differentTeams("cmbz"))
+# print(differentTeams("pcmpcmbbb"))
+# print(differentTeams("pcmpppcmpcmbbbpcmcmcmcmcpppmcmcmzzpcmpcmbbbzzpcmpcmbbbzz"))
