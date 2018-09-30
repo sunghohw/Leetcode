@@ -1,0 +1,42 @@
+#
+# Complete the 'maximumDifference' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts UNWEIGHTED_INTEGER_GRAPH g as parameter.
+#
+
+#
+# For the unweighted graph, <name>:
+#
+# 1. The number of nodes is <name>_nodes.
+# 2. The number of edges is <name>_edges.
+# 3. An edge exists between <name>_from[i] and <name>_to[i].
+#
+#
+
+
+def maximumDifference(g_nodes, g_from, g_to):
+    node_set = [{g_from[0]},set()]
+    local_diff = 0
+    max_diff = 0
+    for i in xrange(len(g_from)):
+        for j in xrange(len(node_set)):
+            if g_from[i] in node_set[j]:
+                node_set[j].add(g_to[i])
+                break
+            elif g_to[i] in node_set[j]:
+                node_set[j].add(g_from[i])
+                break
+            elif not node_set[j]:
+                node_set[j].add(g_from[i])
+                node_set[j].add(g_to[i])
+                node_set.append(set())
+                break
+    print node_set
+    for i in node_set:
+        if i: local_diff = max(i) - min(i)
+        if (max_diff < local_diff): max_diff = local_diff
+    return max_diff
+        
+print maximumDifference(6,[1,1,2,2,3,4],[2,3,3,4,4,5])        
+# print maximumDifference(3,[1,2],[2,3])        
